@@ -1,0 +1,1 @@
+pasta com propósito de armazenamento de dados temporários
