@@ -43,10 +43,10 @@ public class MainForm extends AbstractPage {
      */
     public final void user(ViewData view) throws Exception {
         Container form = new Form(null, "main");
-        DataView dview = new DataView(form, "login");
+        DataView dview = new DataView(form, "user");
         Documents documents = new Documents(this);
       
-        dview.importModel(documents.getModel("login"));
+        dview.importModel(documents.getModel("user"));
         
         view.setMessages(new MessageSource("/META-INF/messages.properties"));
         view.addContainer(form);
@@ -65,7 +65,7 @@ public class MainForm extends AbstractPage {
             controldata.redirect("iocaste-core-utils", "uploadform");
         
         if (value.equals("user"))
-            controldata.redirect("iocaste-core-utils", "form");
+            controldata.redirect("iocaste-core-utils", "user");
     }
     
     /**
