@@ -17,7 +17,11 @@ import org.iocaste.shell.common.MenuItem;
 import org.iocaste.shell.common.MessageSource;
 import org.iocaste.shell.common.ViewData;
 
-
+/**
+ * 
+ * @author Francisco Prates
+ *
+ */
 public class MainForm extends AbstractPage {
 
     /**
@@ -45,8 +49,12 @@ public class MainForm extends AbstractPage {
         Container form = new Form(null, "main");
         DataView dview = new DataView(form, "user");
         Documents documents = new Documents(this);
-      
+        Iocaste iocaste = new Iocaste(this);
+        
         dview.importModel(documents.getModel("user"));
+        dview.setItens(iocaste.getUsers());
+        dview.setPageLines(20);
+        dview.setMode(Const.SINGLE_VIEW);
         
         view.setMessages(new MessageSource("/META-INF/messages.properties"));
         view.addContainer(form);
