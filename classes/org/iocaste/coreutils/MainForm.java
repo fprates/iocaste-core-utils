@@ -1,6 +1,5 @@
 package org.iocaste.coreutils;
 
-import org.iocaste.documents.common.Documents;
 import org.iocaste.protocol.Iocaste;
 import org.iocaste.protocol.user.User;
 import org.iocaste.shell.common.AbstractPage;
@@ -9,7 +8,6 @@ import org.iocaste.shell.common.Const;
 import org.iocaste.shell.common.Container;
 import org.iocaste.shell.common.ControlData;
 import org.iocaste.shell.common.DataForm;
-import org.iocaste.shell.common.DataView;
 import org.iocaste.shell.common.FileEntry;
 import org.iocaste.shell.common.Form;
 import org.iocaste.shell.common.Menu;
@@ -40,25 +38,25 @@ public class MainForm extends AbstractPage {
         view.addContainer(form);
     }
     
-    /**
-     * 
-     * @param view
-     * @throws Exception
-     */
-    public final void user(ViewData view) throws Exception {
-        Container form = new Form(null, "main");
-        DataView dview = new DataView(form, "user");
-        Documents documents = new Documents(this);
-        Iocaste iocaste = new Iocaste(this);
-        
-        dview.importModel(documents.getModel("user"));
-        dview.setItens(iocaste.getUsers());
-        dview.setPageLines(20);
-        dview.setMode(Const.SINGLE_VIEW);
-        
-        view.setMessages(new MessageSource("/META-INF/messages.properties"));
-        view.addContainer(form);
-    }
+//    /**
+//     * 
+//     * @param view
+//     * @throws Exception
+//     */
+//    public final void user(ViewData view) throws Exception {
+//        Container form = new Form(null, "main");
+//        DataView dview = new DataView(form, "user");
+//        Documents documents = new Documents(this);
+//        Iocaste iocaste = new Iocaste(this);
+//        
+//        dview.importModel(documents.getModel("user"));
+//        dview.setItens(iocaste.getUsers());
+//        dview.setPageLines(20);
+//        dview.setMode(Const.DETAIL_VIEW);
+//        
+//        view.setMessages(new MessageSource("/META-INF/messages.properties"));
+//        view.addContainer(form);
+//    }
     
     /**
      * 
@@ -73,7 +71,7 @@ public class MainForm extends AbstractPage {
             controldata.redirect("iocaste-core-utils", "uploadform");
         
         if (value.equals("user"))
-            controldata.redirect("iocaste-core-utils", "user");
+            controldata.redirect("iocaste-dataview", "main");
     }
     
     /**
