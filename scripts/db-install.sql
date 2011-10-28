@@ -2,10 +2,12 @@ delete from task001 where tname='tools';
 insert into task001 (tname, appli, entry) values ('tools', 'iocaste-core-utils', 'main');
 
 delete from docs004 where docid='user';
-delete from docs001 where docid='user';
 delete from docs003 where ename='user_name';
 delete from docs003 where ename='user_secret';
+delete from docs003 where ename='user_firstname';
+delete from docs003 where ename='user_surname';
 delete from docs002 where docid='user';
+delete from docs001 where docid='user';
 
 insert into docs001 (docid, tname, class) values ('user', 'users001', 'org.iocaste.protocol.user.User');
 insert into docs003 (ename, decim, lngth, etype) values ('user_name', 0, 12, 0);
