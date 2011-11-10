@@ -82,9 +82,7 @@ public class MainForm extends AbstractPage {
             throws Exception {
         DataForm form = (DataForm)view.getElement("user");
         Iocaste iocaste = new Iocaste(this);
-        User user = new User();
-        
-        form.exportTo(user);
+        User user = form.getObject().newInstance();
         
         try {
             iocaste.createUser(user);
