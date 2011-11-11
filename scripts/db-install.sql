@@ -14,10 +14,10 @@ insert into docs003 (ename, decim, lngth, etype, upcas) values ('user_name', 0, 
 insert into docs003 (ename, decim, lngth, etype, upcas) values ('user_secret', 0, 12, 0, 0);
 insert into docs003 (ename, decim, lngth, etype, upcas) values ('user_firstname', 0, 64, 0, 1);
 insert into docs003 (ename, decim, lngth, etype, upcas) values ('user_surname', 0, 64, 0, 1);
-insert into docs002 (iname, docid, fname, ename, attrb) values ('name', 'user', 'UNAME', 'user_name', 'username');
-insert into docs002 (iname, docid, fname, ename, attrb) values ('secret', 'user', 'SECRT', 'user_secret', 'secret');
-insert into docs002 (iname, docid, fname, ename, attrb) values ('firstname', 'user', 'FNAME', 'user_firstname', 'firstname');
-insert into docs002 (iname, docid, fname, ename, attrb) values ('surname', 'user', 'SNAME', 'user_surname', 'surname');
+insert into docs002 (iname, docid, fname, ename, attrb, index) values ('name', 'user', 'UNAME', 'user_name', 'username', 0);
+insert into docs002 (iname, docid, fname, ename, attrb, index) values ('secret', 'user', 'SECRT', 'user_secret', 'secret', 1);
+insert into docs002 (iname, docid, fname, ename, attrb, index) values ('firstname', 'user', 'FNAME', 'user_firstname', 'firstname', 2);
+insert into docs002 (iname, docid, fname, ename, attrb, index) values ('surname', 'user', 'SNAME', 'user_surname', 'surname', 3);
 insert into docs004 (docid, iname) values ('user', 'name');
 
 commit work;
