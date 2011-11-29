@@ -32,7 +32,8 @@ public class MainForm extends AbstractPage {
         Menu mainMenu = new Menu(form, "run");
 
         new MenuItem(mainMenu, "data.upload", "upload");
-        new MenuItem(mainMenu, "user", "user");
+        new MenuItem(mainMenu, "dataview", "dataview");
+        new MenuItem(mainMenu, "external.program", "external");
         
         view.setMessages(new MessageSource("/META-INF/messages.properties"));
         view.addContainer(form);
@@ -70,8 +71,14 @@ public class MainForm extends AbstractPage {
         if (value.equals("upload"))
             controldata.redirect("iocaste-core-utils", "uploadform");
         
-        if (value.equals("user"))
+        if (value.equals("dataview"))
             controldata.redirect("iocaste-dataview", "main");
+        
+        if (value.equals("external")) {
+            controldata.addParameter("program", "jna_test");
+            controldata.addParameter("page", "main");
+            controldata.redirect("iocaste-external", "main");
+        }
     }
     
     /**
