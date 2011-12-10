@@ -63,10 +63,13 @@ public class MainForm extends AbstractPage {
      * 
      * @param controldata
      * @param view
+     * @throws Exception 
      */
-    public final void run(ControlData controldata, ViewData view) {
+    public final void run(ControlData controldata, ViewData view)
+            throws Exception {
         Menu mainmenu= (Menu)view.getElement("run");
         String value = mainmenu.getParameter().getValue();
+        String host = new Iocaste(this).getHost();
         
         if (value.equals("upload"))
             controldata.redirect("iocaste-core-utils", "uploadform");
@@ -75,8 +78,9 @@ public class MainForm extends AbstractPage {
             controldata.redirect("iocaste-dataview", "main");
         
         if (value.equals("external")) {
-            controldata.addParameter("program", "jna_test");
-            controldata.addParameter("page", "main");
+            controldata.addParameter("view", "mainview");
+            controldata.addParameter("service",
+                    host+"/axis2/services/TestView");
             controldata.redirect("iocaste-external", "main");
         }
     }
