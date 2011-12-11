@@ -32,32 +32,10 @@ public class MainForm extends AbstractPage {
         Menu mainMenu = new Menu(form, "run");
 
         new MenuItem(mainMenu, "data.upload", "upload");
-        new MenuItem(mainMenu, "dataview", "dataview");
-        new MenuItem(mainMenu, "external.program", "external");
         
         view.setMessages(new MessageSource("/META-INF/messages.properties"));
         view.addContainer(form);
     }
-    
-//    /**
-//     * 
-//     * @param view
-//     * @throws Exception
-//     */
-//    public final void user(ViewData view) throws Exception {
-//        Container form = new Form(null, "main");
-//        DataView dview = new DataView(form, "user");
-//        Documents documents = new Documents(this);
-//        Iocaste iocaste = new Iocaste(this);
-//        
-//        dview.importModel(documents.getModel("user"));
-//        dview.setItens(iocaste.getUsers());
-//        dview.setPageLines(20);
-//        dview.setMode(Const.DETAIL_VIEW);
-//        
-//        view.setMessages(new MessageSource("/META-INF/messages.properties"));
-//        view.addContainer(form);
-//    }
     
     /**
      * 
@@ -69,20 +47,9 @@ public class MainForm extends AbstractPage {
             throws Exception {
         Menu mainmenu= (Menu)view.getElement("run");
         String value = mainmenu.getParameter().getValue();
-        String host = new Iocaste(this).getHost();
         
         if (value.equals("upload"))
             controldata.redirect("iocaste-core-utils", "uploadform");
-        
-        if (value.equals("dataview"))
-            controldata.redirect("iocaste-dataview", "main");
-        
-        if (value.equals("external")) {
-            controldata.addParameter("view", "mainview");
-            controldata.addParameter("service",
-                    host+"/axis2/services/TestView");
-            controldata.redirect("iocaste-external", "main");
-        }
     }
     
     /**
